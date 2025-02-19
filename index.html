@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepstar - Mock Exam Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: white;
+            padding: 15px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+        .navbar button {
+            background-color: royalblue;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 120px;
+            background-color: royalblue;
+            color: white;
+            border-radius: 12px;
+            margin: 40px;
+        }
+        .hero h1 {
+            font-size: 56px;
+        }
+        .hero img {
+            width: 30%;
+            border-radius: 12px;
+        }
+        .section-title {
+            margin: 40px 120px 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            padding: 0 120px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+        }
+        .card img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .test-card {
+            background-color: #0696fd;
+            padding: 50px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 40px 120px;
+        }
+        .test-card button {
+            background: navy;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .filter-section {
+            display: flex;
+            gap: 15px;
+            margin: 20px 120px;
+        }
+        .filter-section button {
+            background: rgb(98, 138, 255);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .exam-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 120px;
+        }
+        .exam-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .s1 li{
+            display: block; padding: 8px; background: #fff; 
+            border: 1px solid #ddd; border-radius: 4px; 
+            color: black; text-decoration: none;
+            padding: 10px;
+
+        }
+
+        .resource-category-card{
+            background: #e8f0fe; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+    <script>
+        function filterResults(category) {
+            let allResults = document.querySelectorAll('.exam-card');
+            allResults.forEach(card => {
+                card.style.display = card.getAttribute('data-category') === category ? 'block' : 'none';
+            });
+        }
+    </script>
+</head>
+<body>
+<!-- Updated Navbar -->
+<nav class="navbar" style="background: #fff; padding: 10px 80px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <div class="navbar-logo" style="font-size: 24px; font-weight: bold; color: royalblue;">Prepstar</div>
+    <div class="navbar-menu" style="display: flex; align-items: center; gap: 20px;">
+      <input type="text" placeholder="Search..." style="padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px; outline: none;"/>
+      <a href="#" style="color: #333; text-decoration: none;">MBA</a>
+      <a href="#" style="color: #333; text-decoration: none;">SSC</a>
+      <a href="#" style="color: #333; text-decoration: none;">Civil Services</a>
+      <a href="#" style="color: #333; text-decoration: none;">More</a>
+      <button style="background: royalblue; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Login</button>
+      <button style="background: royalblue; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Signup</button>
+    </div>
+  </nav>
+  
+    <section class="hero">
+        <div>
+            <h1>Prepare for Your Exam</h1>
+            <p>Live Classes & Practice Sessions with Top Faculty, AI-driven Mock Tests</p>
+        </div>
+        <img src="hero-image.jpg" alt="Exam Preparation">
+    </section>
+    <div class="section-title">Start Your Preparation</div>
+    <div class="card-container">
+        <div class="card"><img src="icon1.png" alt="Card 1">MBA</div>
+        <div class="card"><img src="icon2.png" alt="Card 2">Bank</div>
+        <div class="card"><img src="icon3.png" alt="Card 3">Civil</div>
+        <div class="card"><img src="icon4.png" alt="Card 4">Defence</div>
+        <div class="card"><img src="icon5.png" alt="Card 5">Railway</div>
+        <div class="card"><img src="icon6.png" alt="Card 6">SSC</div>
+        <div class="card"><img src="icon1.png" alt="Card 1">MBA</div>
+        <div class="card"><img src="icon2.png" alt="Card 2">Bank</div>
+
+    </div>
+    <div class="test-card">
+        <h2>We have 5000+ tests for you</h2>
+        <button>Start Now</button>
+    </div>
+
+
+
+    <!-- Choose Your Exam Filter Section -->
+<div class="section-title" style="margin: 40px 120px 20px; font-size: 24px; font-weight: bold; color: royalblue;">
+    Choose Your Exam
+  </div>
+  <div class="filter-section" style="display: flex; gap: 15px; margin: 20px 120px;">
+    <button onclick="filterResults('MBA')" style="background: royalblue; color: white; border: none; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-size: 14px;">MBA</button>
+    <button onclick="filterResults('Bank')" style="background: royalblue; color: white; border: none; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-size: 14px;">Bank</button>
+    <button onclick="filterResults('Civil')" style="background: royalblue; color: white; border: none; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-size: 14px;">Civil</button>
+    <button onclick="filterResults('Defence')" style="background: royalblue; color: white; border: none; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-size: 14px;">Defence</button>
+    <button onclick="filterResults('Railway')" style="background: royalblue; color: white; border: none; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-size: 14px;">Railway</button>
+    <button onclick="filterResults('SSC')" style="background: royalblue; color: white; border: none; padding: 12px 18px; border-radius: 8px; cursor: pointer; font-size: 14px;">SSC</button>
+  </div>
+  <div class="exam-results" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; padding: 0 120px;">
+    <div class="exam-card" data-category="MBA" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      MBA Result 1
+    </div>
+    <div class="exam-card" data-category="MBA" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      MBA Result 2
+    </div>
+    <div class="exam-card" data-category="MBA" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      MBA Result 3
+    </div>
+    <div class="exam-card" data-category="Bank" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      Bank Result 1
+    </div>
+    <div class="exam-card" data-category="Bank" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      Bank Result 2
+    </div>
+    <div class="exam-card" data-category="Bank" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      Bank Result 3
+    </div>
+    <div class="exam-card" data-category="Civil" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      Civil Result 1
+    </div>
+    <div class="exam-card" data-category="Civil" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      Civil Result 2
+    </div>
+    <div class="exam-card" data-category="Civil" style="background: white; width: 120px; height: 120px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; text-align: center;">
+      Civil Result 3
+    </div>
+    <!-- Add additional cards for Defence, Railway, SSC as needed -->
+  </div>
+  <script>
+    function filterResults(category) {
+      const cards = document.querySelectorAll('.exam-card');
+      cards.forEach(card => {
+        if(card.getAttribute('data-category') === category){
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  
+
+
+
+<!-- Testimonials Section -->
+<div class="testimonials-section" style="padding: 40px 120px; background-color: #fff; margin: 40px 0;">
+    <h2 style="text-align: center; color: royalblue; font-size: 28px; margin-bottom: 30px;">What Our Students Say</h2>
+    <div class="testimonial-cards" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <div class="testimonial-card" style="background: #f9f9f9; border-radius: 12px; padding: 20px; width: 250px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <p style="font-style: italic;">"Prepstar has transformed my exam preparation. Highly recommended!"</p>
+        <h4 style="margin-top: 10px; color: royalblue;">- Student A</h4>
+      </div>
+      <div class="testimonial-card" style="background: #f9f9f9; border-radius: 12px; padding: 20px; width: 250px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <p style="font-style: italic;">"The mock tests are incredibly effective and well-structured."</p>
+        <h4 style="margin-top: 10px; color: royalblue;">- Student B</h4>
+      </div>
+      <div class="testimonial-card" style="background: #f9f9f9; border-radius: 12px; padding: 20px; width: 250px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <p style="font-style: italic;">"I gained so much confidence after using Prepstar's resources."</p>
+        <h4 style="margin-top: 10px; color: royalblue;">- Student C</h4>
+      </div>
+      <div class="testimonial-card" style="background: #f9f9f9; border-radius: 12px; padding: 20px; width: 250px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <p style="font-style: italic;">"An indispensable tool for anyone serious about cracking competitive exams."</p>
+        <h4 style="margin-top: 10px; color: royalblue;">- Student D</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Access Free Resources Section -->
+<div class="free-resources-section" style="padding: 40px 120px; background-color: #fff; margin: 40px 0;">
+    <h2 style="text-align: center; color: rgb(0, 0, 0); font-size: 22px; margin-bottom: 30px;">Access Free Resources</h2>
+    <div class="resources-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+      
+      <!-- SSC Exam Resources Card -->
+      <div class="resource-category-card">
+        <h3>SSC Exam</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px;" class="s1"> 
+           <li><a href="#">SSC CGL Live Test</a></li>
+           <li><a href="#">SSC CGL Mock Test</a></li>
+           <li><a href="#">SSC CGL Typing Test</a></li>
+           <li><a href="#">SSC CHSL Typing Test</a></li>
+           <li><a href="#">SSC CHSL Mock Test</a></li>
+           <li><a href="#">SSC CPO Mock Test</a></li>
+           <li><a href="#">SSC MTS Mock Test</a></li>
+           <li><a href="#">SSC Stenographer Mock Test</a></li>
+           <li><a href="#">SSC Selection Post Mock Test</a></li>
+           <li><a href="#">View More</a></li>
+        </ul>
+      </div>
+      
+      <!-- Banking Resources Card -->
+      <div class="resource-category-card">
+        <h3>Banking</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px;" class="s1"> 
+           <li><a href="#">SBI PO Mock Test</a></li>
+           <li><a href="#">SBI Clerk Mock Test</a></li>
+           <li><a href="#">RBI Assistant Mock Test</a></li>
+           <li><a href="#">IBPS Clerk Mock Test</a></li>
+           <li><a href="#">IBPS PO Mock Test</a></li>
+           <li><a href="#">IBPS RRB Clerk Mock Test</a></li>
+           <li><a href="#">View More</a></li>
+        </ul>
+      </div>
+      
+      <!-- MBA Resources Card -->
+      <div class="resource-category-card">
+        <h3>MBA</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px;" class="s1"> 
+           <li><a href="#">CAT Mock Test</a></li>
+           <li><a href="#">CAT Logical Reasoning Mock Test</a></li>
+           <li><a href="#">CAT Quantitative Aptitude Mock Test</a></li>
+           <li><a href="#">CAT Verbal Ability Mock Test</a></li>
+           <li><a href="#">NMAT Mock Test</a></li>
+           <li><a href="#">TISSNET Mock Test</a></li>
+           <li><a href="#">View More</a></li>
+        </ul>
+      </div>
+      
+      <!-- JAIIB CAIIB Resources Card -->
+      <div class="resource-category-card">
+        <h3>JAIIB CAIIB</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px;" class="s1">
+           <li><a href="#">JAIIB Mock Test</a></li>
+           <li><a href="#">CAIIB Mock Test</a></li>
+           <li><a href="#">JAIIB AFB Mock Test</a></li>
+           <li><a href="#">JAIIB PPB Mock Test</a></li>
+           <li><a href="#">JAIIB RBWM Mock Test</a></li>
+           <li><a href="#">JAIIB IEFS Mock Test</a></li>
+           <li><a href="#">View More</a></li>
+        </ul>
+      </div>
+      
+      <!-- IBPS RRB Clerk Resources Card -->
+      <div class="resource-category-card">
+        <h3>IBPS RRB Clerk</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px;" class="s1">
+           <li><a href="#">IBPS RRB Clerk Notification</a></li>
+           <li><a href="#">IBPS RRB Clerk Syllabus</a></li>
+           <li><a href="#">IBPS RRB Clerk Exam Date</a></li>
+           <li><a href="#">IBPS RRB Clerk Salary</a></li>
+           <li><a href="#">IBPS RRB Clerk Admit Card</a></li>
+           <li><a href="#">SSC CPO Mock Test</a></li>
+           <li><a href="#">View More</a></li>
+        </ul>
+      </div>
+      
+      <!-- IBPS RRB PO Resources Card -->
+      <div class="resource-category-card">
+        <h3>IBPS RRB PO</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px;" class="s1">
+           <li><a href="#">IBPS RRB PO Notification</a></li>
+           <li><a href="#">IBPS RRB PO Syllabus</a></li>
+           <li><a href="#">IBPS RRB PO Exam Date</a></li>
+           <li><a href="#">IBPS RRB PO Salary</a></li>
+           <li><a href="#">IBPS RRB Admit Card</a></li>
+           <li><a href="#">IBPS RRB PO Previous Paper</a></li>
+           <li><a href="#">View More</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  
+
+<!-- Footer Section -->
+<footer class="footer" style="background-color: #ffffff; color: #646464; padding: 40px 120px; font-size: 14px;">
+    <div class="footer-container" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+      <div class="footer-about" style="flex: 1; min-width: 250px;">
+        <h3 style="color: #333;">Prepstar Pvt. Ltd.</h3>
+        <p>
+          L-373, Amar Arcade Building,<br>
+          First floor, 5th Main Road, 6th Sector,<br>
+          HSR Layout, Bangalore-560102
+        </p>
+        <p>Email: support@oliveboard.in</p>
+        <p>Phone: +91-7676022222</p>
+      </div>
+      <div class="footer-links" style="flex: 1; min-width: 200px;">
+        <h4 style="color: #333;">Categories</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li>Banking &amp; Insurance</li>
+          <li>SSC Exams</li>
+          <li>Regulatory</li>
+          <li>UPSC</li>
+          <li>MBA Exams</li>
+          <li>Railway Exams</li>
+          <li>JAIIB-CAIIB Exams</li>
+          <li>Karnataka Exams</li>
+          <li>Tamil Nadu Exams</li>
+          <li>Judiciary Exams</li>
+          <li>Law Entrance Exams</li>
+          <li>Agriculture Exams</li>
+          <li>Engineering Exams</li>
+          <li>J&amp;K Exams</li>
+          <li>UP Exams</li>
+          <li>Rajasthan Exams</li>
+          <li>Uttarakhand Exams</li>
+          <li>Punjab Exams</li>
+          <li>Haryana Exams</li>
+          <li>Bihar Exams</li>
+          <li>MP Exams</li>
+          <li>Defence Exams</li>
+          <li>Teaching Exams</li>
+          <li>Himachal Pradesh Exams</li>
+          <li>Chhattisgarh Exams</li>
+          <li>SkillVertex Courses</li>
+        </ul>
+      </div>
+      <div class="footer-links" style="flex: 1; min-width: 200px;">
+        <h4 style="color: #333;">Exams</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li>SBI PO</li>
+          <li>IBPS PO</li>
+          <li>SBI Clerk</li>
+          <li>IBPS Clerk</li>
+          <li>IBPS RRB PO</li>
+          <li>IBPS RRB Clerk</li>
+          <li>SSC CGL</li>
+          <li>SSC CHSL</li>
+          <li>Railways RRB NTPC</li>
+          <li>RBI Grade B</li>
+          <li>NABARD Grade A &amp; B</li>
+          <li>UPSC CSE</li>
+          <li>UPPSC PCS</li>
+          <li>DFCCIL Exam</li>
+          <li>Railway Group D</li>
+          <li>Mock Tests</li>
+          <li>SSC CGL Mock Test</li>
+          <li>IBPS RRB Clerk Mock Test</li>
+          <li>IBPS RRB PO</li>
+          <li>IBPS Clerk</li>
+          <li>SSC CHSL</li>
+          <li>SSC MTS</li>
+          <li>Railways RRB ALP</li>
+          <li>RBI Grade B</li>
+        </ul>
+      </div>
+      <div class="footer-links" style="flex: 1; min-width: 200px;">
+        <h4 style="color: #333;">More</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li>Blog</li>
+          <li>Trending Now</li>
+          <li>Preparation Resources</li>
+          <li>Bank Exams</li>
+          <li>Insurance Exams</li>
+          <li>SSC &amp; Railway Exams</li>
+          <li>Regulatory Exams</li>
+          <li>Bihar Exams</li>
+          <li>Haryana Exams</li>
+          <li>J&amp;K Exams</li>
+          <li>Rajasthan Exams</li>
+          <li>Uttar Pradesh Exams</li>
+          <li>Engineering Exams</li>
+          <li>MBA Exams</li>
+        </ul>
+      </div>
+      <div class="footer-links" style="flex: 1; min-width: 200px;">
+        <h4 style="color: #333;">Company</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li>About</li>
+          <li>Careers</li>
+          <li>Contact Us</li>
+          <li>Privacy Policy</li>
+          <li>Terms</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" style="text-align: center; margin-top: 30px;">
+      <p>© 2023, All right reserved Oliveboard Pvt. Ltd.</p>
+    </div>
+  </footer>
+</body>
+</html>
